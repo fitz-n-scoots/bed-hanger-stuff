@@ -24,14 +24,14 @@ sphefy_width = slider_width * 1.5;
 sphefy_height = slider_height * 2.5;
 sphefy_z_offset = sphefy_height * -0.25;
 
-notch_mating_gap = 0.25;
+notch_mating_gap = 0.5;
 
-notch_rim_radius = 7 + notch_mating_gap;
+notch_rim_radius = 5.5 + notch_mating_gap;
 notch_rim_height = 2 + notch_mating_gap;
 
-notch_tip_length = 27 + notch_mating_gap;
-notch_tip_width = 4 + notch_mating_gap;
-notch_tip_height = 7 + notch_mating_gap;
+notch_tip_length = 23 + notch_mating_gap;
+notch_tip_width = 5 + notch_mating_gap;
+notch_tip_height = 7.6 + notch_mating_gap;
 
 notch_magnet_gap = 1;
 
