@@ -29,7 +29,7 @@ notch_mating_gap = 0.25;
 notch_rim_radius = 7 + notch_mating_gap;
 notch_rim_height = 2 + notch_mating_gap;
 
-notch_tip_length = 2 + notch_mating_gap;
+notch_tip_length = 27 + notch_mating_gap;
 notch_tip_width = 4 + notch_mating_gap;
 notch_tip_height = 7 + notch_mating_gap;
 
