@@ -26,12 +26,12 @@ sphefy_z_offset = sphefy_height * -0.25;
 
 notch_mating_gap = 0.25;
 
-notch_rim_radius = 5 + notch_mating_gap;
+notch_rim_radius = 7 + notch_mating_gap;
 notch_rim_height = 2 + notch_mating_gap;
 
-notch_tip_length = 20 + notch_mating_gap;
+notch_tip_length = 2 + notch_mating_gap;
 notch_tip_width = 4 + notch_mating_gap;
-notch_tip_height = 6 + notch_mating_gap;
+notch_tip_height = 7 + notch_mating_gap;
 
 notch_magnet_gap = 1;
 
