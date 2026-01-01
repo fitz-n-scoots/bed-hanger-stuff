@@ -76,6 +76,9 @@ cube([70,18,1],center = true);
 translate([0,10,120])
 cube([53,15,50],center = true);
 
+translate([50,10,45])
+cube([50,15,67],center = true);
+
 translate([-50,-2.5,45])
 cube([50,15,67],center = true);
 translate([-57,-9,120])
