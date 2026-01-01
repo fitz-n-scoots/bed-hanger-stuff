@@ -65,22 +65,24 @@ rotate([0,90,270])
 notch();
 
 difference(){
-translate([0,0,25+25+10])
+union(){
+translate([0,0,+25+25+10])
 cube([70,50,120],center = true);
-    
+
+translate([0,16,120])
+cube([70,18,1],center = true);
+} 
+
+translate([0,10,120])
+cube([53,15,50],center = true);
+
+translate([-50,-2.5,45])
+cube([50,15,67],center = true);
+translate([-57,-9,120])
+cube([50,2,200],center = true);
+
 translate([0,0,25+25+15])
 cube([70-5,50-5,110],center = true);
-   
-
-translate([0,16,0])
-cube([67,15,50],center = true);
-    
-translate([-20,10,45])
-cube([50,15,67],center = true);
-    
-translate([20,10,45])
-cube([50,15,67],center = true);
-    
 }
 difference(){
 
@@ -94,6 +96,5 @@ translate([0,-65,30])
 cube([magnet_hight,magnet_width,magnet_length], center = true);
 }
 
-translate([0,16,120])
-cube([70,18,1],center = true);
+
 
