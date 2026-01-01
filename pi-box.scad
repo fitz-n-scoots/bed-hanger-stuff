@@ -51,19 +51,13 @@ module notch (){
     
         
     union(){
-    translate([-10,0,magnet_hight])
-    cube([magnet_length+50,magnet_width+2,magnet_hight*2],center = true);
-
-    translate([0,-0,magnet_hight+.5])
-    cube([magnet_length+50,magnet_width,magnet_hight+8],center = true);
+    translate([-15,0,magnet_hight-2])
+    cube([magnet_length+45,magnet_width+2,magnet_hight*2],center = true);
     }
     union(){
     translate([0,-0,magnet_hight+.5])
     cube([magnet_length*30,magnet_width,magnet_hight*2],center = true);
     
-    translate([0,-80,-5])
-    cube([40,40,10]);
-        
     }
     }
 }
