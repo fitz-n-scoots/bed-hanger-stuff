@@ -10,7 +10,7 @@ usb_cutout_hight = 50;
 usb_cutout_width = 15;
 usb_cutout_length = 55;
 
-wall_width = 1;
+wall_width = 1.5;
 
 notch_mating_gap = 0.0;
 
