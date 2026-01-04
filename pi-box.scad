@@ -1,11 +1,10 @@
 pi_box_hight = 120; 
-pi_box_width = 50;
+pi_box_width = 60;
 pi_box_length = 70;
 
 spacer_box_hight = 80; 
 //dont make this longer its a waist of filament.:
 spacer_box_width = 40;
-
 spacer_box_length = 55;
 
 usb_cutout_hight = 50;
@@ -57,7 +56,7 @@ module notch (){
     }
     union(){
     translate([0,-0,magnet_hight+.5])
-    cube([magnet_length*30,magnet_width,magnet_hight*2],center = true);
+    cube([magnet_length*4,magnet_width,magnet_hight*2],center = true);
     }
     }
 }
@@ -120,4 +119,5 @@ module spacing_box (){
 }
 pi_box();
 
+translate([0,-pi_box_width/2 +25 ,0])
 spacing_box ();
