@@ -1,8 +1,8 @@
 pi_box_hight = 120; 
-pi_box_width = 60;
+pi_box_width = 50;
 pi_box_length = 70;
 
-spacer_box_hight = 80; 
+spacer_box_hight = 100; 
 //dont make this longer its a waist of filament.:
 spacer_box_width = 40;
 spacer_box_length = 55;
@@ -48,15 +48,16 @@ module notch (){
     atachment_notch_top();
     translate([0,0,magnet_hight*2+1])
     magnet();
+    
     }
     difference(){
     union(){
-    translate([-15,0,magnet_hight-2])
-        cube([magnet_length+45,magnet_width+2,magnet_hight*2],center = true);
+    translate([-spacer_box_hight/3,0,5])
+        cube([spacer_box_hight-17,magnet_width+2,magnet_hight*2],center = true);
     }
     union(){
-    translate([0,-0,magnet_hight+.5])
-    cube([magnet_length*4,magnet_width,magnet_hight*2],center = true);
+    translate([-spacer_box_hight/3,0,5])
+    cube([magnet_length*4-10,magnet_width,spacer_box_hight-1],center = true);
     }
     }
 }
@@ -113,11 +114,13 @@ module spacing_box (){
     translate([0,-6,30])
     cube([magnet_hight,magnet_width,magnet_length], center = true);
     }
-    translate([0,-5,30])
-    rotate([0,90,270])
-    notch();
+    
 }
 pi_box();
 
-translate([0,-pi_box_width + 10 ,0])
+translate([0,(pi_box_width + spacer_box_width)/-2,10])
 spacing_box ();
+
+translate([0,(pi_box_width + spacer_box_width + 10)/-2,25])
+rotate([0,90,270])
+notch();
