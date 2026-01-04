@@ -96,7 +96,7 @@ module spacing_box (){
     difference(){
     
     union(){
-    translate([0,-pi_box_length/2 + -10,40])
+    translate([0,0,40])
     cube([spacer_box_length,spacer_box_width,spacer_box_hight],center = true);
     }
     
@@ -105,19 +105,19 @@ module spacing_box (){
     translate([-15,0,magnet_hight-2])
         magnet();
         
-    translate([0,-pi_box_length/2 + -15,30])
+    translate([0,-5,30])
     rotate([0,0,270])
     translate([5.5,-0,magnet_hight+20])
         cube([magnet_width*2,magnet_width+2,spacer_box_hight - 25],center = true);
         
-    translate([0,-65,30])
+    translate([0,-6,30])
     cube([magnet_hight,magnet_width,magnet_length], center = true);
     }
-    translate([0,-pi_box_length/2 + -15,30])
+    translate([0,-5,30])
     rotate([0,90,270])
     notch();
 }
 pi_box();
 
-translate([0,-pi_box_width/2 +25 ,0])
+translate([0,-pi_box_width + 10 ,0])
 spacing_box ();
