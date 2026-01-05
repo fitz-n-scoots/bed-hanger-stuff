@@ -1,8 +1,8 @@
 pi_box_hight = 120; 
 pi_box_width = 50;
 pi_box_length = 70;
-
-spacer_box_hight = 100; 
+//does not go to 116 or higher
+spacer_box_hight = 80; 
 //dont make this longer its a waist of filament.:
 spacer_box_width = 40;
 spacer_box_length = 55;
@@ -44,16 +44,16 @@ module atachment_notch_top() {
 module notch (){
     
     difference(){
-    translate([0,0,magnet_hight*2+1])
+    translate([-20,0,magnet_hight*2+1])
     atachment_notch_top();
-    translate([0,0,magnet_hight*2+1])
+    translate([-20,0,magnet_hight*2+1])
     magnet();
     
     }
     difference(){
     union(){
     translate([-spacer_box_hight/3,0,5])
-        cube([spacer_box_hight-17,magnet_width+2,magnet_hight*2],center = true);
+        cube([spacer_box_hight - 16.5,magnet_width+2,magnet_hight*2],center = true);
     }
     union(){
     translate([-spacer_box_hight/3,0,5])
@@ -93,34 +93,39 @@ module pi_box (){
 
     }
 }
+
 module spacing_box (){
+    
     difference(){
-    
+        translate([0,0,spacer_box_hight/2])
+            cube([spacer_box_length,
+                  spacer_box_width,
+                  spacer_box_hight],center = true);
     union(){
-    translate([0,0,40])
-    cube([spacer_box_length,spacer_box_width,spacer_box_hight],center = true);
-    }
-    
-    translate([0,-40,30])
-    rotate([0,90,270])
-    translate([-15,0,magnet_hight-2])
-        magnet();
+        translate([0,-40,30])
+           rotate([0,90,270])
+               translate([-15,0,magnet_hight-2])
+                   magnet();
         
-    translate([0,-5,30])
-    rotate([0,0,270])
-    translate([5.5,-0,magnet_hight+20])
-        cube([magnet_width*2,magnet_width+2,spacer_box_hight - 25],center = true);
-        
-    translate([0,-6,30])
-    cube([magnet_hight,magnet_width,magnet_length], center = true);
+        translate([0,(-spacer_box_width) - -magnet_hight*5 ,spacer_box_hight/10 +25])
+             rotate([0,0,270])
+                 translate([5.5,-0,magnet_hight+20])
+                     cube([magnet_width*2,magnet_width+2,spacer_box_hight ],center = true);
+            
+        translate([0,-6,30])
+            cube([magnet_hight,magnet_width,magnet_length], center = true);
+        }
     }
-    
 }
+
+
+
 pi_box();
 
-translate([0,(pi_box_width + spacer_box_width)/-2,10])
-spacing_box ();
+translate([0, (pi_box_width + spacer_box_width)/-2, 0])
+    spacing_box();
 
-translate([0,(pi_box_width + spacer_box_width + 10)/-2,25])
-rotate([0,90,270])
-notch();
+translate([0,(-pi_box_width/2 + -spacer_box_width) - -magnet_hight*2 ,spacer_box_hight/10])
+    rotate([0,90,270])
+        notch();
+
