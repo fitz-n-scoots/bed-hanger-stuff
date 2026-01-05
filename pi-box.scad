@@ -52,11 +52,11 @@ module notch (){
     }
     difference(){
     union(){
-    translate([-37 ,0,2.5])
-        cube([spacer_box_hight - 10,magnet_width+2,magnet_hight*2],center = true);
+    translate([-spacer_box_hight +28 ,0,2.5])
+        cube([spacer_box_hight - 40,magnet_width+2,magnet_hight*2],center = true);
     }
     union(){
-    translate([-spacer_box_hight/3,0,5])
+    translate([-spacer_box_hight +28,0,5])
     cube([magnet_length*4-10,magnet_width,spacer_box_hight+1000],center = true);
     }
     }
