@@ -86,7 +86,7 @@ module pi_box (){
 
     translate([-pi_box_length/2,-2.5,45])
     cube([usb_cutout_length,usb_cutout_width,usb_cutout_hight],center = true);
-    translate([-pi_box_length/2,-9,pi_box_hight])
+    translate([-pi_box_length/2,-9,120])
     cube([50,2,200],center = true);
 
     translate([0,0,pi_box_hight/2 + 5])
@@ -124,7 +124,7 @@ module spacing_box (){
         }
     }
 
-    translate([-7.5,-spacer_box_width/2,spacer_box_hight - 3,])
+    translate([-7.5,-spacer_box_width/2 + 15,spacer_box_hight - 3,])
             rotate([90,-0,90])
                 cylinder(r=2.5 , h= 15);
 
