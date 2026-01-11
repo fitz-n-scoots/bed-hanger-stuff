@@ -63,6 +63,7 @@ module notch (){
     translate([0,0,spacer_box_hight])
     cube([20,20,20]);
     }
+    
 }
 
 module pi_box (){
@@ -119,8 +120,14 @@ module spacing_box (){
             
         translate([0,-spacer_box_width/2 +2,35])
             cube([magnet_hight,magnet_width,magnet_length], center = true);
+        
         }
     }
+
+    translate([-7.5,-5.5,spacer_box_hight - 3,])
+            rotate([90,-0,90])
+                cylinder(r=2.5 , h= 15);
+
 }
 
 
@@ -129,7 +136,7 @@ pi_box();
 translate([0, (pi_box_width + spacer_box_width)/-2, 0])
 spacing_box();
 
-translate([0,(-pi_box_width/2 + -spacer_box_width) - -magnet_hight*2 , spacer_box_hight - 68.5])
+translate([0,(-pi_box_width/2 + -spacer_box_width) - -magnet_hight*2 , 15])
     rotate([0,90,270])
         notch();
 
