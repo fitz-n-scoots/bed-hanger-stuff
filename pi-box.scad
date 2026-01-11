@@ -124,7 +124,7 @@ module spacing_box (){
         }
     }
 
-    translate([-7.5,-5.5,spacer_box_hight - 3,])
+    translate([-7.5,-spacer_box_width/2,spacer_box_hight - 3,])
             rotate([90,-0,90])
                 cylinder(r=2.5 , h= 15);
 
