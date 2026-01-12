@@ -43,60 +43,60 @@ module atachment_notch_top() {
 
 module notch (){
     difference(){
-    difference(){
-    translate([-20,0,magnet_hight*2+1])
-    atachment_notch_top();
-    translate([-20,0,magnet_hight*2+1])
-    magnet();
+      difference(){
+        translate([-20,0,magnet_hight*2+1])
+          atachment_notch_top();
+            translate([-20,0,magnet_hight*2+1])
+              magnet();
     
     }
-    difference(){
-    union(){
-    translate([-spacer_box_hight +28 ,0,2.5])
-        cube([spacer_box_hight/2 -0,magnet_width+2,magnet_hight*2],center = true);
+      difference(){
+        union(){
+          translate([-spacer_box_hight +28 ,0,2.5])
+            cube([spacer_box_hight/2 -0,magnet_width+2,magnet_hight*2],center = true);
     }
-    union(){
-    translate([-spacer_box_hight +28,0,5])
-    cube([magnet_length*4-10,magnet_width,spacer_box_hight+1000],center = true);
+        union(){
+          translate([-spacer_box_hight +28,0,5])
+            cube([magnet_length*4-10,magnet_width,spacer_box_hight+1000],center = true);
     }
     }
-    translate([0,0,spacer_box_hight])
-    cube([20,20,20]);
+      translate([0,0,spacer_box_hight])
+        cube([20,20,20]);
     }
     
 }
 
 module pi_box (){
     difference(){
-    union(){
-    translate([0,0,pi_box_hight/2])
-    cube([pi_box_length,pi_box_width,pi_box_hight],center = true);
+      union(){
+        translate([0,0,pi_box_hight/2])
+          cube([pi_box_length,pi_box_width,pi_box_hight],center = true);
     
-    difference(){
-    translate([0,pi_box_width/2 - 9.5,pi_box_hight])
-    cube([pi_box_length,18,1],center = true);
+      difference(){
+        translate([0,pi_box_width/2 - 9.5,pi_box_hight])
+          cube([pi_box_length,18,1],center = true);
     
 
-    translate([0,pi_box_width/2 - 14,pi_box_hight-20])
-    cube([pi_box_length-10,usb_cutout_width,usb_cutout_hight+200],center = true);
+      translate([0,pi_box_width/2 - 14,pi_box_hight-20])
+        cube([pi_box_length-10,usb_cutout_width,usb_cutout_hight+200],center = true);
     }
     }
-    translate([pi_box_length/2,10,45])
-    cube([usb_cutout_length,usb_cutout_width,usb_cutout_hight],center = true);
+      translate([pi_box_length/2,10,45])
+        cube([usb_cutout_length,usb_cutout_width,usb_cutout_hight],center = true);
 
-    translate([-pi_box_length/2,-2.5,45])
-    cube([usb_cutout_length,usb_cutout_width,usb_cutout_hight],center = true);
-    translate([-pi_box_length/2,-9,120])
-    cube([50,2,200],center = true);
+      translate([-pi_box_length/2,-2.5,45])
+        cube([usb_cutout_length,usb_cutout_width,usb_cutout_hight],center = true);
+      translate([-pi_box_length/2,-9,120])
+        cube([50,2,200],center = true);
 
-    translate([0,0,pi_box_hight/2 + 5])
-    cube([pi_box_length-1 , pi_box_width-1 , pi_box_hight-10] , center = true);
+      translate([0,0,pi_box_hight/2 + 5])
+        cube([pi_box_length-1 , pi_box_width-1 , pi_box_hight-10] , center = true);
     
-    translate([0,-10,pi_box_hight-3])
-    cube([pi_box_length - wall_width,29.3333333333333,7],center = true);
+      translate([0,-10,pi_box_hight-3])
+        cube([pi_box_length - wall_width,29.3333333333333,7],center = true);
     
-    translate([-20,0,magnet_hight*2+1])
-    magnet();
+      translate([-20,0,magnet_hight*2+1])
+        magnet();
     }
 }
 
@@ -134,7 +134,7 @@ module spacing_box (){
 
 pi_box();
 translate([0, (pi_box_width + spacer_box_width)/-2, 0])
-spacing_box();
+  spacing_box();
 
 translate([0,(-pi_box_width/2 + -spacer_box_width) - -magnet_hight*2 , 15])
     rotate([0,90,270])
