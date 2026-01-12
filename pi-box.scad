@@ -1,5 +1,5 @@
 pi_box_hight = 120; 
-pi_box_width = 50;
+pi_box_width = 60;
 pi_box_length = 70;
 //does not go to 116 or higher
 spacer_box_hight = 80; 
