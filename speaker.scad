@@ -1,3 +1,5 @@
+include<notched_attachment.scad>;
+
 pi_box_hight = 120; 
 pi_box_width = 60;
 pi_box_length = 70;
@@ -41,34 +43,9 @@ module atachment_notch_top() {
   }
 }
 
-module notch (){
-    
-    difference(){
-      translate([0,0,magnet_hight*2+1])
-        atachment_notch_top();
-      translate([0,0,magnet_hight*2+1])
-        magnet();
-    }
-    
-    
-
-    difference(){
-    
-        
-      union(){
-        translate([-15,0,magnet_hight-2])
-          cube([magnet_length+45,magnet_width+2,magnet_hight*2],center = true);
-    }
-      union(){
-        translate([0,-0,magnet_hight+.5])
-          cube([magnet_length*30,magnet_width,magnet_hight*2],center = true);
-    
-    }
-    }
-}
   translate([0,-50,30])
     rotate([0,90,270])
-      notch();
+      atachment_notch();
 
 difference(){
 

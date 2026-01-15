@@ -1,9 +1,11 @@
+include<notched_attachment.scad>;
+
 pi_box_hight = 120; 
 pi_box_width = 60;
 pi_box_length = 70;
 //does not go to 116 or higher
 spacer_box_hight = 80; 
-//dont make this longer its a waist of filament.:
+//dont make this longer its a waist of filament.scad:
 spacer_box_width = 40;
 spacer_box_length = 55;
 
@@ -30,41 +32,6 @@ module magnet(){
     cube([magnet_length,magnet_width,magnet_hight],center = true);
 }
 
-module atachment_notch_top() {
-  hull(){
-    translate([notch_tip_length/2, 0, magnet_hight/2-4]) rotate([0, 0, 360/16])
-      cylinder(h = notch_rim_height, r = notch_rim_radius / cos(360/16), $fn = 8, center = true);
-    translate([notch_tip_length/-2, 0,magnet_hight/2-4 ]) rotate([0, 0, 360/16])
-      cylinder(h = notch_rim_height, r = notch_rim_radius / cos(360/16), $fn = 8, center = true);
-    translate([0, 0, notch_tip_height/2])
-      cube([notch_tip_length, notch_tip_width, notch_tip_height], center = true);
-  }
-}
-
-module notch (){
-    difference(){
-      difference(){
-        translate([-20,0,magnet_hight*2+1])
-          atachment_notch_top();
-            translate([-20,0,magnet_hight*2+1])
-              magnet();
-    
-    }
-      difference(){
-        union(){
-          translate([-spacer_box_hight +28 ,0,2.5])
-            cube([spacer_box_hight/2 -0,magnet_width+2,magnet_hight*2],center = true);
-    }
-        union(){
-          translate([-spacer_box_hight +28,0,5])
-            cube([magnet_length*4-10,magnet_width,spacer_box_hight+1000],center = true);
-    }
-    }
-      translate([0,0,spacer_box_hight])
-        cube([20,20,20]);
-    }
-    
-}
 
 module pi_box (){
     difference(){
@@ -100,43 +67,13 @@ module pi_box (){
     }
 }
 
-module spacing_box (){
-    
-    difference(){
-        translate([0,0,spacer_box_hight/2])
-            cube([spacer_box_length,
-                  spacer_box_width,
-                  spacer_box_hight],center = true);
-    union(){
-        translate([0,-40,30])
-           rotate([0,90,270])
-               translate([-15,0,magnet_hight-2])
-                   magnet();
-        
-        translate([0,-spacer_box_width/2 + magnet_width*2, spacer_box_hight/10 +25])
-             rotate([0,0,270])
-                 translate([5.5,-0,magnet_hight+20])
-                     cube([magnet_width*2,magnet_width+2,spacer_box_hight ],center = true);
-            
-        translate([0,-spacer_box_width/2 +2,35])
-            cube([magnet_hight,magnet_width,magnet_length], center = true);
-        
-        }
-    }
 
-    translate([-7.5,-spacer_box_width/2 + 15,spacer_box_hight - 3,])
-            rotate([90,-0,90])
-                cylinder(r=2.5 , h= 15);
-
-}
 
 
 
 pi_box();
-translate([0, (pi_box_width + spacer_box_width)/-2, 0])
-  spacing_box();
 
-translate([0,(-pi_box_width/2 + -spacer_box_width) - -magnet_hight*2 , 15])
+translate([0,(-pi_box_width/2 + -spacer_box_width) - -magnet_hight*2 , 27])
     rotate([0,90,270])
-        notch();
+        atachment_notch(spacer_box_hight);
 
