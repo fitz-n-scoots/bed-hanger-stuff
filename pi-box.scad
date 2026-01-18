@@ -61,9 +61,6 @@ module pi_box (){
     
       translate([0,-10,pi_box_hight-3])
         cube([pi_box_length - wall_width,29.3333333333333,7],center = true);
-    
-      translate([-20,0,magnet_hight*2+1])
-        magnet();
     }
 }
 

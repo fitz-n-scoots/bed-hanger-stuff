@@ -48,21 +48,6 @@ module atachment_notch_top() {
       atachment_notch();
 
 difference(){
-
-  difference(){
-
-    translate([0,-45,40])
-      cube([55,40,80],center = true);
-
-    translate([0,-39,42.5])
-      cube([51,48,80],center = true);
-    
-    translate([0,-65,30])
-      cube([magnet_hight,magnet_width,magnet_length], center = true);
-}
-
-}
-difference(){
   translate([0,0,40])
     cube([185,55,80],center = true);
 

@@ -1,9 +1,10 @@
 /*
 //does not go to 116 or higher
-spacer_box_hight = 80; 
+sb_hight = 80; 
 //dont make this longer its a waist of filament.:
-spacer_box_width = 40;
-spacer_box_length = 55;*/
+sb_width = 40;
+sb_length = 55;*/
+
 
 notch_mating_gap = 0.0;
 
@@ -22,23 +23,23 @@ module spacing_box (sb_hight = 80,sb_width = 40,sb_length = 55, magnet_length = 
 ){
     
     difference(){
-        translate([0,0,spacer_box_hight/2])
-            cube([spacer_box_length,
-                  spacer_box_width,
-                  spacer_box_hight],center = true);
+        translate([0,0,sb_hight/2])
+            cube([sb_length,
+                  sb_width,
+                  sb_hight],center = true);
     union(){
         translate([0,-40,30])
            rotate([0,90,270])
                translate([-15,0,magnet_hight-2])
                    magnet();
         
-        translate([0,-spacer_box_width/2 + magnet_width*2 -2, spacer_box_hight/10 +25])
+        translate([0,-sb_width/2 + magnet_width*2 -2, sb_hight/10 +25])
              rotate([0,0,270])
                  translate([5.5,-0,magnet_hight+20])
         
-                     cube([magnet_width*2 -3,magnet_width+2,spacer_box_hight ],center = true);
+                     cube([magnet_width*2 -3,magnet_width+2,sb_hight ],center = true);
             
-        translate([0,-spacer_box_width/2 +2,25])
+        translate([0,-sb_width/2 +2,25])
             cube([magnet_hight,magnet_width,magnet_length], center = true);
         
         }
@@ -67,7 +68,7 @@ module atachment_notch(sb_hight = 80,sb_width = 40,sb_length = 55, magnet_length
     }
 }
  
-        translate([-spacer_box_hight+14 + 15,4.5,3])
+        translate([-sb_hight+14 + 15,4.5,3])
             rotate([90,0,0])
                 cylinder(r=2.5 , h= 9 , $fn = 200);
     
