@@ -1,8 +1,8 @@
 include<notched_attachment.scad>;
 
-pi_box_hight = 120; 
-pi_box_width = 60;
-pi_box_length = 70;
+speaker_box_hight = 60; 
+speaker_box_width = 60;
+speaker_box_length = 180;
 //does not go to 116 or higher
 spacer_box_hight = 80; 
 //dont make this longer its a waist of filament.:
@@ -31,28 +31,16 @@ magnet_hight = magnet_width;
 module magnet(){
     cube([magnet_length,magnet_width,magnet_hight],center = true);
 }
-
-module atachment_notch_top() {
-  hull(){
-    translate([notch_tip_length/2, 0,     magnet_hight/2-4]) rotate([0, 0, 360/16])
-      cylinder(h = notch_rim_height, r = notch_rim_radius / cos(360/16), $fn = 8, center = true);
-    translate([notch_tip_length/-2, 0,magnet_hight/2-4 ]) rotate([0, 0, 360/16])
-      cylinder(h = notch_rim_height, r = notch_rim_radius / cos(360/16), $fn = 8, center = true);
-    translate([0, 0, notch_tip_height/2])
-      cube([notch_tip_length, notch_tip_width, notch_tip_height], center = true);
-  }
-}
-
-  translate([0,-50,30])
+  translate([0,-50,27])
     rotate([0,90,270])
-      atachment_notch();
+      atachment_notch(spacer_box_hight,spacer_box_width,spacer_box_length);
 
 difference(){
-  translate([0,0,40])
-    cube([185,55,80],center = true);
+  translate([0,0,37])
+    cube([speaker_box_length+70,speaker_box_width-7,speaker_box_hight+11],center = true);
 
-  translate([0,0,46])
-    cube([183,53,74],center = true);
+  translate([0,0,100])
+    cube([speaker_box_length+65,speaker_box_width-15,speaker_box_length+0],center = true);
 }
 
 
