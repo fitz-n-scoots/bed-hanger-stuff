@@ -19,7 +19,7 @@ magnet_length = 27.5;
 magnet_width = 7.5;
 magnet_hight = magnet_width;
 
-module spacing_box (sb_hight = 80,sb_width = 40,sb_length = 55, magnet_length = 27.5,magnet_width = 7.5,magnet_hight = 7.5,notch_mating_gap = 0.0,notch_rim_radius = 5.5 + notch_mating_gap,notch_rim_height = 2 + notch_mating_gap,notch_tip_length = 27 + notch_mating_gap,notch_tip_width = 7 + notch_mating_gap,notch_tip_height = 7.6 + notch_mating_gap
+module spacing_box (sb_hight = 80,sb_width = 40,sb_length = 55, magnet_length = 27.5,magnet_width = 7.5,magnet_hight = 7.5,
 ){
     
     difference(){
@@ -49,7 +49,7 @@ module spacing_box (sb_hight = 80,sb_width = 40,sb_length = 55, magnet_length = 
 }
 
 
-module atachment_notch(sb_hight = 80,sb_width = 40,sb_length = 55, magnet_length = 27.5,magnet_width = 7.5,magnet_hight = 7.5,notch_mating_gap = 0.0,notch_rim_radius = 5.5 + notch_mating_gap,notch_rim_height = 2 + notch_mating_gap,notch_tip_length = 27 + notch_mating_gap,notch_tip_width = 7 + notch_mating_gap,notch_tip_height = 7.6 + notch_mating_gap
+module atachment_notch(sb_hight = 80,sb_width = 40,sb_length = 55, magnet_length = 27.5,magnet_width = 7.5,magnet_hight = 7.5,
 ) {
   
   translate([26.5,0,-7])  
