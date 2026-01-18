@@ -18,7 +18,7 @@ magnet_length = 27.5;
 magnet_width = 7.5;
 magnet_hight = magnet_width;
 
-module spacing_box (sb_hight = 80,sb_width = 40,sb_length = 55, magnet_length = 27.5,magnet_width = 7.5,magnet_hight = 7.5,
+module spacing_box (sb_hight = 80,sb_width = 40,sb_length = 55
 ){
     
     difference(){
@@ -53,7 +53,7 @@ module atachment_notch(sb_hight = 80,sb_width = 40,sb_length = 55,
   
   translate([26.5,0,-7])  
       rotate([-90,0,90])  
-          spacing_box();
+          spacing_box(sb_hight,sb_width,sb_length);
     
   hull(){
     translate([0,0,12.5]){
