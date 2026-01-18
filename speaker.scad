@@ -31,7 +31,7 @@ magnet_hight = magnet_width;
 module magnet(){
     cube([magnet_length,magnet_width,magnet_hight],center = true);
 }
-  translate([0,-50,27])
+  translate([0,-speaker_box_width+10,27])
     rotate([0,90,270])
       atachment_notch(spacer_box_hight,spacer_box_width,spacer_box_length);
 
