@@ -1,7 +1,7 @@
 include<notched_attachment.scad>;
 
 speaker_box_hight = 60; 
-speaker_box_width = 60;
+speaker_box_width = 80;
 speaker_box_length = 180;
 //does not go to 116 or higher
 spacer_box_hight = 80; 
@@ -31,7 +31,7 @@ magnet_hight = magnet_width;
 module magnet(){
     cube([magnet_length,magnet_width,magnet_hight],center = true);
 }
-  translate([0,-speaker_box_width+10,27])
+  translate([0,-speaker_box_width/2-20,27])
     rotate([0,90,270])
       atachment_notch(spacer_box_hight,spacer_box_width,spacer_box_length);
 

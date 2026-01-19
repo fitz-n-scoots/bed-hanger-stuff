@@ -70,7 +70,7 @@ module pi_box (){
 
 pi_box();
 
-translate([0,(-pi_box_width/2 + -spacer_box_width) - -magnet_hight*2 , 27])
+translate([0,(-pi_box_width/2 -27)  , 27])
     rotate([0,90,270])
         atachment_notch(spacer_box_hight,spacer_box_width,spacer_box_length);
 
