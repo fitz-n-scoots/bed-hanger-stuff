@@ -18,6 +18,10 @@ magnet_length = 27.5;
 magnet_width = 7.5;
 magnet_hight = magnet_width;
 
+module magnet(){
+    cube([magnet_length,magnet_width,magnet_hight],center = true);
+}
+
 module spacing_box (sb_hight = 80,sb_width = 40,sb_length = 55
 ){
     
@@ -51,12 +55,12 @@ module spacing_box (sb_hight = 80,sb_width = 40,sb_length = 55
 module atachment_notch(sb_hight = 80,sb_width = 40,sb_length = 55, 
 ) {
   
-  translate([26.5,0,-7])  
+  translate([sb_hight/2-20,0,-7])  
       rotate([-90,0,90])  
           spacing_box(sb_hight,sb_width,sb_length);
     
   hull(){
-    translate([0,0,12.5]){
+    translate([sb_hight/2 - 45,0,sb_width/2 - 7]){
       translate([notch_tip_length/2, 0, notch_rim_height/2]) rotate([0, 0, 360/16])
         cylinder(h = notch_rim_height, r = notch_rim_radius / cos(360/16), $fn = 8, center = true);
       translate([notch_tip_length/-2, 0, notch_rim_height/2]) rotate([0, 0, 360/16])
@@ -67,22 +71,25 @@ module atachment_notch(sb_hight = 80,sb_width = 40,sb_length = 55,
     }
 }
  
-        translate([-sb_hight+14 + 15,4.5,3])
+        translate([-sb_hight/2 - 17.5,4.5,sb_width/2 - 17])
             rotate([90,0,0])
-                cylinder(r=2.5 , h= 9 , $fn = 200);
+                cylinder(r=2 , h= 9 , $fn = 200);
     
     difference(){
     
         
-    union(){
-      translate([-15,0,magnet_hight-2])
+    
+      translate([-20,0,magnet_hight-2])
         cube([sb_hight,magnet_width+2,magnet_hight*2],center = true);
-    }
-    union(){
+    
       translate([0,-0,magnet_hight+.5])
         cube([magnet_length*30,magnet_width,magnet_hight*2],center = true);
     
     }
     }
-}
 
+
+//*
+atachment_notch (sb_hight = 90,sb_width = 40,sb_length = 55
+);
+//*/

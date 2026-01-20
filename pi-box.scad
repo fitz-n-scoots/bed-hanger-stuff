@@ -15,22 +15,6 @@ usb_cutout_length = 55;
 
 wall_width = 1.5;
 
-notch_mating_gap = 0.0;
-
-notch_rim_radius = 5.5 + notch_mating_gap;
-notch_rim_height = 2 + notch_mating_gap;
-
-notch_tip_length = 27 + notch_mating_gap;
-notch_tip_width = 7 + notch_mating_gap;
-notch_tip_height = 7.6 + notch_mating_gap;
-
-magnet_length = 27.5;
-magnet_width = 7.5;
-magnet_hight = magnet_width;
-
-module magnet(){
-    cube([magnet_length,magnet_width,magnet_hight],center = true);
-}
 
 
 module pi_box (){
@@ -70,7 +54,7 @@ module pi_box (){
 
 pi_box();
 
-translate([0,(-pi_box_width/2 -27)  , 27])
+translate([0,-pi_box_width/2 - spacer_box_width/2 -7.5 , 20])
     rotate([0,90,270])
         atachment_notch(spacer_box_hight,spacer_box_width,spacer_box_length);
 
