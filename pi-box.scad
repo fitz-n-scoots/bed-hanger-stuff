@@ -41,7 +41,7 @@ module pi_box (){
         cube([50,2,200],center = true);
 
       translate([0,0,pi_box_hight/2 + 5])
-        cube([pi_box_length-1 , pi_box_width-1 , pi_box_hight-10] , center = true);
+        cube([pi_box_length-1 + 0.001, pi_box_width-1 + 0.001, pi_box_hight-10 + 0.001] , center = true);
     
       translate([0,-10,pi_box_hight-3])
         cube([pi_box_length - wall_width,29.3333333333333,7],center = true);
