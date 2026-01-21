@@ -73,7 +73,7 @@ module atachment_notch(sb_hight = 80,sb_width = 40,sb_length = 55,
  
         translate([-sb_hight/2 - 17.5,4.5,sb_width/2 - 17])
             rotate([90,0,0])
-                cylinder(r=2 , h= 9 , $fn = 200);
+                cylinder(r=1 , h= 9 , $fn = 200);
     
     difference(){
     

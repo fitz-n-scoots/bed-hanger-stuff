@@ -35,9 +35,9 @@ module pi_box (){
       translate([pi_box_length/2,10,45])
         cube([usb_cutout_length,usb_cutout_width,usb_cutout_hight],center = true);
 
-      translate([-pi_box_length/2,-2.5,45])
+      translate([-pi_box_length/2,-pi_box_length/2 + 15,45])
         cube([usb_cutout_length,usb_cutout_width,usb_cutout_hight],center = true);
-      translate([-pi_box_length/2,-9,120])
+      translate([-pi_box_length/2 ,-pi_box_length/2 + 10,120])
         cube([50,2,200],center = true);
 
       translate([0,0,pi_box_hight/2 + 5])
@@ -54,7 +54,7 @@ module pi_box (){
 
 pi_box();
 
-translate([0,-pi_box_width/2 - spacer_box_width/2 -7.5 , 20])
+translate([0,-pi_box_width/2 - spacer_box_width/2 -7.5 ,spacer_box_hight/2 - 20])
     rotate([0,90,270])
         atachment_notch(spacer_box_hight,spacer_box_width,spacer_box_length);
 
