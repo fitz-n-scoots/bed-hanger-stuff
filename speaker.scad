@@ -6,7 +6,7 @@ speaker_box_length = 230;
 //does not go to 116 or higher
 spacer_box_hight = speaker_box_hight + 20;
 //dont make this longer its a waist of filament.:
-spacer_box_width = 40; //!
+spacer_box_width = 60; //!
 spacer_box_length = 55;
 
 usb_cutout_hight = 50;
@@ -14,7 +14,7 @@ usb_cutout_width = 15;
 usb_cutout_length = 55;
 
 
-  translate([0,-speaker_box_width/2-22.5,spacer_box_hight/2 - 18.5])
+  translate([0,-spacer_box_hight + 10,spacer_box_hight/2 - 18.5])
     rotate([0,90,270])
       atachment_notch(spacer_box_hight,spacer_box_width,spacer_box_length);
 
