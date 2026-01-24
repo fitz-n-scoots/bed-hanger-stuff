@@ -42,7 +42,7 @@ module spacing_box (sb_hight = 80,sb_width = 40,sb_length = 55
         
                      cube([magnet_width*2 -3,magnet_width+2,sb_hight ],center = true);
             
-        translate([0,-sb_width/2 +2,25])
+        translate([0,-sb_width/2 +2,0])
             cube([magnet_hight,magnet_width,magnet_length], center = true);
         
         }
