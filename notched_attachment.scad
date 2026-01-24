@@ -79,7 +79,7 @@ module atachment_notch(sb_hight = 80,sb_width = 40,sb_length = 55,
     
         
     
-      translate([-20,0,sb_width/2 - 17])
+      translate([-20,0,sb_width/2 - 15])
         cube([sb_hight,magnet_width+2,magnet_hight*2],center = true);
     
       translate([0,-0,sb_width/2 - 16])
