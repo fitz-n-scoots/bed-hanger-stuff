@@ -38,11 +38,11 @@ module spacing_box (sb_hight = 80,sb_width = 40,sb_length = 55
         
         translate([0,-sb_width/2 + magnet_width*2 -2, sb_hight/10 +25])
              rotate([0,0,270])
-                 translate([5.5,-0,magnet_hight+20])
+                 translate([5.5,0,magnet_hight+10])
         
                      cube([magnet_width*2 -3,magnet_width+2,sb_hight ],center = true);
             
-        translate([0,-sb_width/2 +2,0])
+        translate([0,-sb_width/2 +2,25])
             cube([magnet_hight,magnet_width,magnet_length], center = true);
         
         }
@@ -83,7 +83,7 @@ module atachment_notch(sb_hight = 80,sb_width = 40,sb_length = 55,
         cube([sb_hight,magnet_width+2,magnet_hight*2],center = true);
     
       translate([0,-0,sb_width/2 - 16])
-        cube([magnet_length*30,magnet_width,magnet_hight*2],center = true);
+        cube([magnet_length*300,magnet_width,magnet_hight*2],center = true);
     
     }
     }
