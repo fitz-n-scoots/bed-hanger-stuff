@@ -6,8 +6,8 @@ pi_box_length = 70;
 //does not go to 116 or higher
 spacer_box_hight = 80; 
 //dont make this longer its a waist of filament.scad:
-spacer_box_width = 40;
-spacer_box_length = 55;
+spacer_box_width = 25;
+spacer_box_length = 22.5;
 
 usb_cutout_hight = 50;
 usb_cutout_width = 15;
@@ -27,17 +27,24 @@ module pi_box (){
     }
       translate([pi_box_length/2,10,45])
         cube([usb_cutout_length,usb_cutout_width,usb_cutout_hight],center = true);
-
-      translate([-pi_box_length/2,-pi_box_length/2 + 15,45])
+      
+      union(){
+      difference(){    
+      translate([-pi_box_length/2,-pi_box_length/2 + 17.5,45])
         cube([usb_cutout_length,usb_cutout_width,usb_cutout_hight],center = true);
+          
+      translate([-pi_box_length/2,-pi_box_length/2 + 24.5,57.5])
+      rotate([45,0,0])
+      cube([20,40,20]);
+      }}
       translate([-pi_box_length/2 ,-pi_box_length/2 + 10,120])
         cube([50,2,200],center = true);
 
       translate([0,0,pi_box_hight/2 + 5])
-        cube([pi_box_length-wall_width + 0.001, pi_box_width-wall_width + 0.001, pi_box_hight-10 + 0.001] , center = true);
+        cube([pi_box_length-wall_width*2 + 0.001, pi_box_width-wall_width*2 + 0.001, pi_box_hight + 0.001] , center = true);
     
       translate([0,-10,pi_box_hight-3])
-        cube([pi_box_length - wall_width,29.3333333333333,7],center = true);
+        cube([pi_box_length - wall_width*2,29.3333333333333,7],center = true);
     }
 
       difference(){
