@@ -89,12 +89,11 @@ module atachment_notch(sb_hight = 80,sb_width = 40,sb_length = 55,
         
         }
         }
-translate([sb_width/2-20,0,13])
+translate([sb_width/2-16.5,0,sb_width/2-7.5])
             cube([magnet_length,magnet_width,magnet_hight], center = true);
 }
 }
 
-
 /*
-atachment_notch (sb_hight = 90,sb_width = 40,sb_length = 55);
+atachment_notch (sb_hight = 90,sb_width = 33,sb_length = 55);
 //*/
