@@ -58,7 +58,7 @@ module pi_box (){
     
     translate([-35,pi_box_width/2 ,pi_box_hight-2])
           rotate([0,90,0])
-    cylinder(h=pi_box_length);
+    cylinder(h=pi_box_length,r = 0.005);
     
     }
     }
