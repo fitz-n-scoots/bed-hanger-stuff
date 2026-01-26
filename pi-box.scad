@@ -29,13 +29,13 @@ module pi_box (){
       translate([pi_box_length/2,10,45])
         cube([usb_cutout_length,usb_cutout_width,usb_cutout_hight],center = true);
       
-      translate([0,-pi_box_width/2 + 30,0])
+      translate([0,-pi_box_width/2 + 32.5,0])
       union(){
       difference(){    
-      translate([-pi_box_length/2,-pi_box_length/2 + 17.5,45])
+      translate([-pi_box_length/2 ,-pi_box_width + 40,45])
         cube([usb_cutout_length,usb_cutout_width,usb_cutout_hight+20],center = true);
           
-      translate([-pi_box_length/2,-pi_box_length/2 + 24.5,65])
+      translate([-pi_box_length/2,-pi_box_width + 50,65])
       rotate([45,0,0])
       cube([20,40,20]);
       }}
@@ -53,17 +53,17 @@ module pi_box (){
       hull(){
       
       
-        translate([0,pi_box_width/2 - 9.5,pi_box_hight])
+        translate([0,pi_box_width/2 - 9,pi_box_hight])
           cube([pi_box_length,18,1],center = true);
     
-    translate([-spacer_box_length/2 - 23,pi_box_width/2 ,pi_box_hight-2])
+    translate([-spacer_box_length - 16 ,pi_box_width/2 ,pi_box_hight-2])
           rotate([0,90,0])
     cylinder(h=pi_box_length,r = 0.005);
     
     }
 
     translate([0,pi_box_width/2 - 14,pi_box_hight-5])
-        cube([pi_box_width/2+25,usb_cutout_width,usb_cutout_hight-0],center = true);
+        cube([pi_box_width/2+30,usb_cutout_width,usb_cutout_hight-0],center = true);
     
     }
 
