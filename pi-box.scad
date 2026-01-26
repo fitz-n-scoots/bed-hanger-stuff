@@ -32,10 +32,10 @@ module pi_box (){
       translate([0,-pi_box_width/2 + 32.5,0])
       union(){
       difference(){    
-      translate([-pi_box_length/2 ,-pi_box_width + 40,45])
+      translate([-pi_box_length/2 ,-pi_box_width/2 + pi_box_width/2 - 20,45])
         cube([usb_cutout_length,usb_cutout_width,usb_cutout_hight+20],center = true);
           
-      translate([-pi_box_length/2,-pi_box_width + 50,65])
+      translate([-pi_box_length/2,-pi_box_width/2 + pi_box_width/2 - 10,65])
       rotate([45,0,0])
       cube([20,40,20]);
       }}
