@@ -2,7 +2,7 @@ include<notched_attachment.scad>;
 
 pi_box_hight = 120; 
 pi_box_width = 60;
-pi_box_length = 70;
+pi_box_length = 77;
 //does not go to 116 or higher
 spacer_box_hight = 80; 
 //dont make this longer its a waist of filament.scad:
@@ -29,17 +29,18 @@ module pi_box (){
       translate([pi_box_length/2,10,45])
         cube([usb_cutout_length,usb_cutout_width,usb_cutout_hight],center = true);
       
+      translate([0,-pi_box_width/2 + 30,0])
       union(){
       difference(){    
       translate([-pi_box_length/2,-pi_box_length/2 + 17.5,45])
-        cube([usb_cutout_length,usb_cutout_width,usb_cutout_hight],center = true);
+        cube([usb_cutout_length,usb_cutout_width,usb_cutout_hight+20],center = true);
           
-      translate([-pi_box_length/2,-pi_box_length/2 + 24.5,57.5])
+      translate([-pi_box_length/2,-pi_box_length/2 + 24.5,65])
       rotate([45,0,0])
       cube([20,40,20]);
       }}
-      translate([-pi_box_length/2 ,-pi_box_length/2 + 10,120])
-        cube([50,2,200],center = true);
+      translate([-pi_box_length/2 ,-pi_box_width/2 + 6,120])
+        cube([50,3,200],center = true);
 
       translate([0,0,pi_box_hight/2 + floor_hight])
         cube([pi_box_length-wall_width*2 + 0.001, pi_box_width-wall_width*2 + 0.001, pi_box_hight + 0.001] , center = true);
@@ -49,21 +50,20 @@ module pi_box (){
     }
 
       difference(){
-      union(){
       hull(){
       
       
         translate([0,pi_box_width/2 - 9.5,pi_box_hight])
           cube([pi_box_length,18,1],center = true);
     
-    translate([-35,pi_box_width/2 ,pi_box_hight-2])
+    translate([-spacer_box_length/2 - 23,pi_box_width/2 ,pi_box_hight-2])
           rotate([0,90,0])
     cylinder(h=pi_box_length,r = 0.005);
     
     }
-    }
+
     translate([0,pi_box_width/2 - 14,pi_box_hight-5])
-        cube([pi_box_length-10,usb_cutout_width,usb_cutout_hight-0],center = true);
+        cube([pi_box_width/2+25,usb_cutout_width,usb_cutout_hight-0],center = true);
     
     }
 
