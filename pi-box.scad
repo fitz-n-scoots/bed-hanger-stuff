@@ -26,7 +26,7 @@ module pi_box (){
       
 
     }
-      translate([pi_box_length/2,10,45])
+      translate([pi_box_length/2,15,37.5])
         cube([usb_cutout_length,usb_cutout_width,usb_cutout_hight],center = true);
       
       translate([0,-pi_box_width/2 + 32.5,0])
