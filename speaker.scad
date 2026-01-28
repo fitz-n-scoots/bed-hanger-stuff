@@ -32,7 +32,17 @@ difference(){
   cylinder(d=20,$fn=256,h=20);
 }
 translate([0,speaker_box_width/2 - 12.5,speaker_box_hight/2+42.5])
-cube([speaker_box_length-5,15,2],center = true);
+      hull(){
+      
+      
+        translate([0,speaker_box_width/2 - 40,speaker_box_hight/2-30])
+          cube([speaker_box_length,18,1],center = true);
+    
+    translate([-spacer_box_length/2 - 100 ,speaker_box_width/2-32.5 ,speaker_box_hight/2-32.5])
+          rotate([0,90,0])
+    cylinder(h=speaker_box_length,r = 0.005);
+    
+    }
 
 
 
