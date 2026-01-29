@@ -1,3 +1,4 @@
+include<notched_attachment.scad>;
 
 DEFAULT_FN = 64;
 
@@ -67,17 +68,6 @@ module sphefy_slider() {
   }
 }
 
-module atachment_notch() {
-  hull(){
-    translate([notch_tip_length/2, 0, notch_rim_height/2]) rotate([0, 0, 360/16])
-      cylinder(h = notch_rim_height, r = notch_rim_radius / cos(360/16), $fn = 8, center = true);
-    translate([notch_tip_length/-2, 0, notch_rim_height/2]) rotate([0, 0, 360/16])
-      cylinder(h = notch_rim_height, r = notch_rim_radius / cos(360/16), $fn = 8, center = true);
-    translate([0, 0, notch_tip_height/2])
-      cube([notch_tip_length, notch_tip_width, notch_tip_height], center = true);
-  }
-}
-
 module magnet_hole_cutout() {
   translate([0, 0, hanger_full_height - magnet_hole_height/2])
     cylinder(h = magnet_hole_height, r = magnet_hole_radius, $fn = DEFAULT_FN, center = true);
@@ -98,7 +88,7 @@ module hanger() {
   difference() {
     hanger_positive();
     union() {
-      atachment_notch();
+      female_atachment_notch(sb_hight = 80,sb_width = 40,sb_length = 55);
         magnet_hole_cutout();
     }
   }

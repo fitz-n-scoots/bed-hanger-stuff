@@ -44,11 +44,15 @@ translate([0,speaker_box_width/2 - 12.5,speaker_box_hight/2+42.5])
     
     }
 
+translate([-speaker_box_length/2,0,40]){
+rotate([0,-90,0]){
+cylinder(h=9,r=6);
+    
+
+translate([0,0,9])
+cylinder(h=6,r=10);
 
 
 
-
-
-
-
-
+}
+}
