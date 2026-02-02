@@ -48,8 +48,8 @@ module pi_box (){
       translate([0,-10,pi_box_hight-3])
         cube([pi_box_length - wall_width*2,29.3333333333333,7],center = true);
     
-        translate([pi_box_length/2-27.5,pi_box_width/2-15])  
-          cube([usb_cutout_length/2+17.5,usb_cutout_width,usb_cutout_hight+20],center = true);
+        translate([pi_box_length/2-27.5,pi_box_width/2-5,0])  
+          cube([usb_cutout_length/2+17.5,usb_cutout_width+10,floor_hight*2-0],center = true);
       
       }
 
@@ -77,9 +77,20 @@ module pi_box (){
 
 
 
+
+intersection(){
+union(){
 pi_box();
 
 
 translate([0,-pi_box_width/2 - spacer_box_width/2 -7 ,spacer_box_hight/2 - 20])
     rotate([0,90,270])
         atachment_notch(spacer_box_hight,spacer_box_width,spacer_box_length);
+}
+
+
+
+translate([-20,0,0])
+cube([200,200,100]);
+
+}
