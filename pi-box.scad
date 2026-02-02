@@ -47,7 +47,11 @@ module pi_box (){
     
       translate([0,-10,pi_box_hight-3])
         cube([pi_box_length - wall_width*2,29.3333333333333,7],center = true);
-    }
+    
+        translate([pi_box_length/2-27.5,pi_box_width/2-15])  
+          cube([usb_cutout_length/2+17.5,usb_cutout_width,usb_cutout_hight+20],center = true);
+      
+      }
 
       difference(){
       hull(){
