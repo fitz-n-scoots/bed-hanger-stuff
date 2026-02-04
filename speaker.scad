@@ -43,8 +43,8 @@ translate([0,speaker_box_width/2 - 12.5,speaker_box_hight/2+42.5])
     cylinder(h=speaker_box_length,r = 0.005);
     
     }
-
-translate([-speaker_box_length/2,0,40]){
+difference(){
+translate([-speaker_box_length/2,0,6]){
 rotate([0,-90,0]){
 cylinder(h=9,r=6);
     
@@ -55,4 +55,7 @@ cylinder(h=6,r=10);
 
 
 }
+}
+translate([-speaker_box_length/2-16,-10,-4])
+cube([20,20,4]);
 }
