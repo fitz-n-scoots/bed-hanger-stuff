@@ -78,7 +78,7 @@ module pi_box (){
 
 
 
-intersection(){
+
 union(){
 pi_box();
 
@@ -86,11 +86,4 @@ pi_box();
 translate([0,-pi_box_width/2 - spacer_box_width/2 -7 ,spacer_box_hight/2 - 20])
     rotate([0,90,270])
         atachment_notch(spacer_box_hight,spacer_box_width,spacer_box_length);
-}
-
-
-
-translate([-20,0,0])
-cube([200,200,100]);
-
 }
