@@ -44,18 +44,18 @@ translate([0,speaker_box_width/2 - 12.5,speaker_box_hight/2+42.5])
     
     }
 difference(){
-translate([-speaker_box_length/2,0,6]){
+translate([-speaker_box_length/2,0,7]){
 rotate([0,-90,0]){
-cylinder(h=9,r=6);
+cylinder(h=15,r=6);
     
 
-translate([0,0,9])
-cylinder(h=6,r=10);
+translate([0,0,15])
+cylinder(h=6,r=15);
 
 
 
 }
 }
-translate([-speaker_box_length/2-16,-10,-4])
-cube([20,20,4]);
+translate([-speaker_box_length/2-30,-15,-62])
+cube([29,29,62]);
 }
