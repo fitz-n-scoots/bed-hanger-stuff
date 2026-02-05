@@ -49,7 +49,7 @@ module pi_box (){
         cube([pi_box_length - wall_width*2,29.3333333333333,7],center = true);
     
         translate([pi_box_length/2-27.5,pi_box_width/2-5,0])  
-          cube([usb_cutout_length/2+17.5,usb_cutout_width+10,floor_hight*2-0],center = true);
+          cube([usb_cutout_length/2+17.5,usb_cutout_width+10,floor_hight*2+25],center = true);
       
       }
 
