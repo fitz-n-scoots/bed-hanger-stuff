@@ -1,5 +1,7 @@
 include<notched_attachment.scad>;
 
+notch_hight=4;
+
 DEFAULT_FN = 64;
 
 slat_gap_distance = 67;
@@ -88,7 +90,7 @@ module hanger() {
   difference() {
     hanger_positive();
     union() {
-      female_atachment_notch(sb_hight = 80,sb_width = 40,sb_length = 55);
+      female_atachment_notch(notch_hight);
         magnet_hole_cutout();
     }
   }
