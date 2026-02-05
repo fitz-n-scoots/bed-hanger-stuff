@@ -18,13 +18,13 @@ magnet_length = 27.5;
 magnet_width = 7.5;
 magnet_hight = magnet_width;
 
-module female_atachment_notch(female_notch_hight = notch_tip_height/2+1,) {
+module female_atachment_notch(female_notch_length = 27/2,female_notch_width = notch_rim_radius / cos(360/16)) {
   hull(){
-    translate([notch_tip_length/2, 0, notch_rim_height/2]) rotate([0, 0, 360/16])
-      cylinder(h = notch_rim_height, r = notch_rim_radius / cos(360/16), $fn = 8, center = true);
-    translate([notch_tip_length/-2, 0, notch_rim_height/2]) rotate([0, 0, 360/16])
-      cylinder(h = notch_rim_height, r = notch_rim_radius / cos(360/16), $fn = 8, center = true);
-    translate([0, 0, female_notch_hight])
+    translate([female_notch_length, 0, notch_rim_height/2]) rotate([0, 0, 360/16])
+      cylinder(h = notch_rim_height, r = female_notch_width, $fn = 8, center = true);
+    translate([-female_notch_length, 0, notch_rim_height/2]) rotate([0, 0, 360/16])
+      cylinder(h = notch_rim_height, r = female_notch_width, $fn = 8, center = true);
+    translate([0, 0, notch_tip_height/2])
       cube([notch_tip_length, notch_tip_width, notch_tip_height], center = true);
   }
 }

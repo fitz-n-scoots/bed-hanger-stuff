@@ -1,6 +1,8 @@
 include<notched_attachment.scad>;
 
-notch_hight=4;
+
+notch_width = notch_tip_length/-2 + 26.5;
+notch_length= notch_rim_radius / cos(360/16) + 0.5;
 
 DEFAULT_FN = 64;
 
@@ -89,8 +91,9 @@ module hanger_positive() {
 module hanger() {
   difference() {
     hanger_positive();
-    union() {
-      female_atachment_notch(notch_hight);
+      union() {
+          translate([0,0,-0.0001])
+      female_atachment_notch(notch_width,notch_length);
         magnet_hole_cutout();
     }
   }
