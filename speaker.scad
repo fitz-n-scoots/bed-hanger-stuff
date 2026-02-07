@@ -16,7 +16,7 @@ usb_cutout_width = 15;
 usb_cutout_length = 55;
 
 
-  translate([0,-speaker_box_width/2 - 10,speaker_box_hight/2 - 15.5])
+  translate([0,-speaker_box_width/2 - 10,speaker_box_hight/2 - 13])
     rotate([0,90,270])
       atachment_notch(spacer_box_hight,spacer_box_width,spacer_box_length);
 
@@ -58,6 +58,6 @@ cylinder(h=6,r=15);
 
 }
 }
-translate([-speaker_box_length/2-30,-15,-61])
+translate([-speaker_box_length/2-30,-15,-60.5])
 cube([29,29,62]);
 }
