@@ -1,7 +1,9 @@
 include<notched_attachment.scad>;
 
+stoper_hight = 32.5;
+
 speaker_box_hight = 60; 
-speaker_box_width = 80;
+speaker_box_width = 90;
 speaker_box_length = 230; 
 //does not go to 116 or higher
 spacer_box_hight = speaker_box_hight + 10;
@@ -14,7 +16,7 @@ usb_cutout_width = 15;
 usb_cutout_length = 55;
 
 
-  translate([0,-spacer_box_width/2 - 40,spacer_box_hight/2 - 18.5])
+  translate([0,-speaker_box_width/2 - 10,speaker_box_hight/2 - 15.5])
     rotate([0,90,270])
       atachment_notch(spacer_box_hight,spacer_box_width,spacer_box_length);
 
@@ -35,10 +37,10 @@ translate([0,speaker_box_width/2 - 12.5,speaker_box_hight/2+42.5])
       hull(){
       
       
-        translate([0,speaker_box_width/2 - 40,speaker_box_hight/2-30])
+        translate([0,speaker_box_width/2-45,speaker_box_hight/2-30])
           cube([speaker_box_length,18,1],center = true);
     
-    translate([-spacer_box_length/2 - 100 ,speaker_box_width/2-32.5 ,speaker_box_hight/2-32.5])
+    translate([-speaker_box_length/2 ,speaker_box_width/2-37.5 ,speaker_box_hight/2-stoper_hight])
           rotate([0,90,0])
     cylinder(h=speaker_box_length,r = 0.005);
     
