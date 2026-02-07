@@ -58,6 +58,6 @@ cylinder(h=6,r=15);
 
 }
 }
-translate([-speaker_box_length/2-30,-15,-60.5])
+translate([-speaker_box_length/2-27.5,-15,-60.5])
 cube([29,29,62]);
 }
