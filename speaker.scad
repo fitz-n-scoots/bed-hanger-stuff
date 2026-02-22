@@ -1,98 +1,63 @@
+include<notched_attachment.scad>;
 
-notch_mating_gap = 0.0;
+stoper_hight = 32.5;
 
-notch_rim_radius = 5 + notch_mating_gap;
-notch_rim_height = 2 + notch_mating_gap;
+speaker_box_hight = 60; 
+speaker_box_width = 90;
+speaker_box_length = 230; 
+//does not go to 116 or higher
+spacer_box_hight = speaker_box_hight + 10;
+//dont make this longer its a waist of filament.:
+spacer_box_width = 20; //!
+spacer_box_length = 25;
 
-notch_tip_length = 20 + notch_mating_gap;
-notch_tip_width = 4 + notch_mating_gap;
-notch_tip_height = 6 + notch_mating_gap;
+usb_cutout_hight = 50;
+usb_cutout_width = 15;
+usb_cutout_length = 55;
 
-notch_mating_gap = 0.0;
 
-notch_rim_radius = 5.5 + notch_mating_gap;
-notch_rim_height = 2 + notch_mating_gap;
+  translate([0,-speaker_box_width/2 - 10,speaker_box_hight/2 - 13])
+    rotate([0,90,270])
+      atachment_notch(spacer_box_hight,spacer_box_width,spacer_box_length);
 
-notch_tip_length = 27 + notch_mating_gap;
-notch_tip_width = 7 + notch_mating_gap;
-notch_tip_height = 7.6 + notch_mating_gap;
-
-magnet_length = 27.5;
-magnet_width = 7.5;
-magnet_hight = magnet_width;
-
-module magnet(){
-    cube([magnet_length,magnet_width,magnet_hight],center = true);
-}
-
-module atachment_notch_top() {
-  hull(){
-    translate([notch_tip_length/2, 0, magnet_hight/2-4]) rotate([0, 0, 360/16])
-      cylinder(h = notch_rim_height, r = notch_rim_radius / cos(360/16), $fn = 8, center = true);
-    translate([notch_tip_length/-2, 0,magnet_hight/2-4 ]) rotate([0, 0, 360/16])
-      cylinder(h = notch_rim_height, r = notch_rim_radius / cos(360/16), $fn = 8, center = true);
-    translate([0, 0, notch_tip_height/2])
-      cube([notch_tip_length, notch_tip_width, notch_tip_height], center = true);
+difference(){
+  union(){
+  translate([0,0,37])
+    cube([speaker_box_length,speaker_box_width-7,speaker_box_hight+11],center = true);
+  
   }
+  
+  translate([0,0,45])
+    cube([speaker_box_length-5,speaker_box_width-15,speaker_box_hight],center = true);
+
+  translate([0,-30,0])
+  cylinder(d=20,$fn=256,h=20);
 }
-
-module notch (){
+translate([0,speaker_box_width/2 - 12.5,speaker_box_hight/2+42.5])
+      hull(){
+      
+      
+        translate([0,speaker_box_width/2-45,speaker_box_hight/2-30])
+          cube([speaker_box_length,18,1],center = true);
     
-    difference(){
-    translate([0,0,magnet_hight*2+1])
-    atachment_notch_top();
-    translate([0,0,magnet_hight*2+1])
-    magnet();
-    }
-    
-    
-
-    difference(){
-    
-        
-    union(){
-    translate([-15,0,magnet_hight-2])
-    cube([magnet_length+45,magnet_width+2,magnet_hight*2],center = true);
-    }
-    union(){
-    translate([0,-0,magnet_hight+.5])
-    cube([magnet_length*30,magnet_width,magnet_hight*2],center = true);
+    translate([-speaker_box_length/2 ,speaker_box_width/2-37.5 ,speaker_box_hight/2-stoper_hight])
+          rotate([0,90,0])
+    cylinder(h=speaker_box_length,r = 0.005);
     
     }
-    }
-}
-translate([0,-50,30])
-rotate([0,90,270])
-notch();
-
 difference(){
-
-difference(){
-
-translate([0,-45,40])
-cube([55,40,80],center = true);
-
-translate([0,-39,42.5])
-cube([51,48,80],center = true);
+translate([-speaker_box_length/2,0,7]){
+rotate([0,-90,0]){
+cylinder(h=15,r=6);
     
-translate([0,-65,30])
-cube([magnet_hight,magnet_width,magnet_length], center = true);
+
+translate([0,0,15])
+cylinder(h=6,r=15);
+
+
+
 }
-
 }
-difference(){
-translate([0,0,40])
-cube([185,55,80],center = true);
-
-translate([0,0,46])
-cube([183,53,74],center = true);
+translate([-speaker_box_length/2-27.5,-15,-60.5])
+cube([29,29,62]);
 }
-
-
-
-
-
-
-
-
-

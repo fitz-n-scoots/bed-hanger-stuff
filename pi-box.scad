@@ -1,142 +1,89 @@
+include<notched_attachment.scad>;
+
 pi_box_hight = 120; 
 pi_box_width = 60;
-pi_box_length = 70;
+pi_box_length = 77;
 //does not go to 116 or higher
 spacer_box_hight = 80; 
-//dont make this longer its a waist of filament.:
-spacer_box_width = 40;
-spacer_box_length = 55;
+//dont make this longer its a waist of filament.scad:
+spacer_box_width = 25;
+spacer_box_length = 22.5;
 
 usb_cutout_hight = 50;
 usb_cutout_width = 15;
 usb_cutout_length = 55;
 
-wall_width = 1.5;
+wall_width = 3;
 
-notch_mating_gap = 0.0;
+floor_hight = 6;
 
-notch_rim_radius = 5.5 + notch_mating_gap;
-notch_rim_height = 2 + notch_mating_gap;
-
-notch_tip_length = 27 + notch_mating_gap;
-notch_tip_width = 7 + notch_mating_gap;
-notch_tip_height = 7.6 + notch_mating_gap;
-
-magnet_length = 27.5;
-magnet_width = 7.5;
-magnet_hight = magnet_width;
-
-module magnet(){
-    cube([magnet_length,magnet_width,magnet_hight],center = true);
-}
-
-module atachment_notch_top() {
-  hull(){
-    translate([notch_tip_length/2, 0, magnet_hight/2-4]) rotate([0, 0, 360/16])
-      cylinder(h = notch_rim_height, r = notch_rim_radius / cos(360/16), $fn = 8, center = true);
-    translate([notch_tip_length/-2, 0,magnet_hight/2-4 ]) rotate([0, 0, 360/16])
-      cylinder(h = notch_rim_height, r = notch_rim_radius / cos(360/16), $fn = 8, center = true);
-    translate([0, 0, notch_tip_height/2])
-      cube([notch_tip_length, notch_tip_width, notch_tip_height], center = true);
-  }
-}
-
-module notch (){
-    difference(){
-    difference(){
-    translate([-20,0,magnet_hight*2+1])
-    atachment_notch_top();
-    translate([-20,0,magnet_hight*2+1])
-    magnet();
-    
-    }
-    difference(){
-    union(){
-    translate([-spacer_box_hight +28 ,0,2.5])
-        cube([spacer_box_hight/2 -0,magnet_width+2,magnet_hight*2],center = true);
-    }
-    union(){
-    translate([-spacer_box_hight +28,0,5])
-    cube([magnet_length*4-10,magnet_width,spacer_box_hight+1000],center = true);
-    }
-    }
-    translate([0,0,spacer_box_hight])
-    cube([20,20,20]);
-    }
-    
-}
 
 module pi_box (){
     difference(){
-    union(){
-    translate([0,0,pi_box_hight/2])
-    cube([pi_box_length,pi_box_width,pi_box_hight],center = true);
-    
-    difference(){
-    translate([0,pi_box_width/2 - 9.5,pi_box_hight])
-    cube([pi_box_length,18,1],center = true);
-    
+      union(){
+        translate([0,0,pi_box_hight/2])
+          cube([pi_box_length,pi_box_width,pi_box_hight],center = true);
+      
 
-    translate([0,pi_box_width/2 - 14,pi_box_hight-20])
-    cube([pi_box_length-10,usb_cutout_width,usb_cutout_hight+200],center = true);
     }
-    }
-    translate([pi_box_length/2,10,45])
-    cube([usb_cutout_length,usb_cutout_width,usb_cutout_hight],center = true);
+      translate([pi_box_length/2,15,37.5])
+        cube([usb_cutout_length,usb_cutout_width,usb_cutout_hight],center = true);
+      
+      translate([0,-pi_box_width/2 + 32.5,0])
+      union(){
+      difference(){    
+      translate([-pi_box_length/2 ,-pi_box_width/2 + pi_box_width/2 - 20,45])
+        cube([usb_cutout_length,usb_cutout_width,usb_cutout_hight+20],center = true);
+          
+      translate([-pi_box_length/2,-pi_box_width/2 + pi_box_width/2 - 10,65])
+      rotate([45,0,0])
+      cube([20,40,20]);
+      }}
+      translate([-pi_box_length/2 ,-pi_box_width/2 + 6,120])
+        cube([50,3,200],center = true);
 
-    translate([-pi_box_length/2,-2.5,45])
-    cube([usb_cutout_length,usb_cutout_width,usb_cutout_hight],center = true);
-    translate([-pi_box_length/2,-9,120])
-    cube([50,2,200],center = true);
+      translate([0,0,pi_box_hight/2 + floor_hight])
+        cube([pi_box_length-wall_width*2 + 0.001, pi_box_width-wall_width*2 + 0.001, pi_box_hight + 0.001] , center = true);
+    
+      translate([0,-10,pi_box_hight-3])
+        cube([pi_box_length - wall_width*2,29.3333333333333,7],center = true);
+    
+        translate([pi_box_length/2-27.5,pi_box_width/2-5,0])  
+          cube([usb_cutout_length/2+17.5,usb_cutout_width+10,floor_hight*2+25],center = true);
+      
+      }
 
-    translate([0,0,pi_box_hight/2 + 5])
-    cube([pi_box_length-1 , pi_box_width-1 , pi_box_hight-10] , center = true);
+      difference(){
+      hull(){
+      
+      
+        translate([0,pi_box_width/2 - 9,pi_box_hight])
+          cube([pi_box_length,18,1],center = true);
     
-    translate([0,-10,pi_box_hight-3])
-    cube([pi_box_length - wall_width,29.3333333333333,7],center = true);
+    translate([-spacer_box_length - 16 ,pi_box_width/2 ,pi_box_hight-2])
+          rotate([0,90,0])
+    cylinder(h=pi_box_length,r = 0.005);
     
-    translate([-20,0,magnet_hight*2+1])
-    magnet();
-    }
-}
-
-module spacing_box (){
-    
-    difference(){
-        translate([0,0,spacer_box_hight/2])
-            cube([spacer_box_length,
-                  spacer_box_width,
-                  spacer_box_hight],center = true);
-    union(){
-        translate([0,-40,30])
-           rotate([0,90,270])
-               translate([-15,0,magnet_hight-2])
-                   magnet();
-        
-        translate([0,-spacer_box_width/2 + magnet_width*2, spacer_box_hight/10 +25])
-             rotate([0,0,270])
-                 translate([5.5,-0,magnet_hight+20])
-                     cube([magnet_width*2,magnet_width+2,spacer_box_hight ],center = true);
-            
-        translate([0,-spacer_box_width/2 +2,35])
-            cube([magnet_hight,magnet_width,magnet_length], center = true);
-        
-        }
     }
 
-    translate([-7.5,-spacer_box_width/2 + 15,spacer_box_hight - 3,])
-            rotate([90,-0,90])
-                cylinder(r=2.5 , h= 15);
+    translate([0,pi_box_width/2 - 14,pi_box_hight-5])
+        cube([pi_box_width/2+30,usb_cutout_width,usb_cutout_hight-0],center = true);
+    
+    }
 
 }
 
 
 
+
+
+
+
+union(){
 pi_box();
-translate([0, (pi_box_width + spacer_box_width)/-2, 0])
-spacing_box();
 
-translate([0,(-pi_box_width/2 + -spacer_box_width) - -magnet_hight*2 , 15])
+
+translate([0,-pi_box_width/2 - spacer_box_width/2 -7 ,spacer_box_hight/2 - 20])
     rotate([0,90,270])
-        notch();
-
+        atachment_notch(spacer_box_hight,spacer_box_width,spacer_box_length);
+}
