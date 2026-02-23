@@ -3,7 +3,7 @@ This is a file of my images of the bed hanger and pi box
 the pi box and bed hanger are designed to hang  
 from the bottom boards  
 on the bottom of a bunk/loft bed  
-so far there is only a bed hanger and pi box  
+so far there is only a bed hanger and pi box and the speaker box  
 you can design your own and use the same hanger as me.
 
 # the side
