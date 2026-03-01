@@ -1,6 +1,6 @@
 include<notched_attachment.scad>;
 
-bottom_hight = 5;
+wall_hight = 5;
 
 stoper_hight = 32.5;
 
@@ -32,8 +32,8 @@ difference(){
   
   }
   
-  translate([0,0,45])
-    cube([speaker_box_length-5,speaker_box_width-bottom_hight*2,speaker_box_hight],center = true);
+  translate([0,0,speaker_box_hight/2+wall_hight*2+1])
+    cube([speaker_box_length-5,speaker_box_width-wall_hight*2,speaker_box_hight+15],center = true);
 
   translate([0,-0,0])
   cylinder(d=20,$fn=256,h=20);
