@@ -5,7 +5,7 @@ wall_hight = 5;
 stoper_hight = 32.5;
 
 speaker_box_hight = 60; 
-speaker_box_width = 70;
+speaker_box_width = 90;
 speaker_box_length = 195; 
 //does not go to 116 or higher
 spacer_box_hight = speaker_box_hight + 10;
@@ -38,8 +38,8 @@ difference(){
   translate([0,-0,0])
   cylinder(d=20,$fn=256,h=20);
 }
-translate([0,speaker_box_width/2 - 3.5,speaker_box_hight/2+42.5])
-      union(){
+translate([0,speaker_box_width/2 - 12.5,speaker_box_hight/2+42.5])
+      hull(){
       
       
         translate([0,speaker_box_width/2-45,speaker_box_hight/2-30])
