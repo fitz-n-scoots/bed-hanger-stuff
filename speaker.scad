@@ -1,5 +1,7 @@
 include<notched_attachment.scad>;
 
+bottom_hight = 5;
+
 stoper_hight = 32.5;
 
 speaker_box_hight = 60; 
@@ -16,11 +18,11 @@ usb_cutout_width = 15;
 usb_cutout_length = 55;
 
 
-  translate([-speaker_box_length/2+15,-speaker_box_width/2 - 10,speaker_box_hight/2 - 13])
+  translate([-speaker_box_length/2+15,-speaker_box_width/2 - 12,speaker_box_hight/2 - 13])
     rotate([0,90,270])
       atachment_notch(spacer_box_hight,spacer_box_width,spacer_box_length);
       
-  translate([speaker_box_length/2-15,-speaker_box_width/2 - 10,speaker_box_hight/2 - 13])
+  translate([speaker_box_length/2-15,-speaker_box_width/2 - 12,speaker_box_hight/2 - 13])
     rotate([0,90,270])
       atachment_notch(spacer_box_hight,spacer_box_width,spacer_box_length);
 difference(){
@@ -31,13 +33,13 @@ difference(){
   }
   
   translate([0,0,45])
-    cube([speaker_box_length-5,speaker_box_width-15,speaker_box_hight],center = true);
+    cube([speaker_box_length-5,speaker_box_width-bottom_hight*2,speaker_box_hight],center = true);
 
   translate([0,-0,0])
   cylinder(d=20,$fn=256,h=20);
 }
 translate([0,speaker_box_width/2 - 3.5,speaker_box_hight/2+42.5])
-      hull(){
+      union(){
       
       
         translate([0,speaker_box_width/2-45,speaker_box_hight/2-30])
@@ -49,18 +51,18 @@ translate([0,speaker_box_width/2 - 3.5,speaker_box_hight/2+42.5])
     
     }
 difference(){
-translate([-0,-speaker_box_width/2+3,7]){
+translate([-0,-speaker_box_width/2+5,20]){
 rotate([90,0,0]){
 cylinder(h=15,r=6);
     
 
 translate([0,0,15])
-cylinder(h=6,r=15);
+cylinder(h=6,r=30);
 
 
 
 }
 }
-translate([-29/2,-speaker_box_width/2-20,-8])
-cube([29,29,10]);
+translate([-50/2,-speaker_box_width/2-20,-10])
+cube([50,41,12]);
 }
