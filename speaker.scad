@@ -6,7 +6,7 @@ stoper_hight = 32.5;
 
 speaker_box_hight = 60; 
 speaker_box_width = 90;
-speaker_box_length = 195; 
+speaker_box_length = 200; 
 //does not go to 116 or higher
 spacer_box_hight = speaker_box_hight + 10;
 //dont make this longer its a waist of filament.:
