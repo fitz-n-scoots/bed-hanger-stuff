@@ -83,10 +83,10 @@ union(){
 pi_box();
 
 
-translate([30,-pi_box_width/2 - spacer_box_width/2 -7 ,spacer_box_hight/2 - 20])
+translate([40,-pi_box_width/2 - spacer_box_width/2 -7 ,spacer_box_hight/2 - 20])
     rotate([0,90,270])
         atachment_notch(spacer_box_hight,spacer_box_width,spacer_box_length);
-translate([-30,-pi_box_width/2 - spacer_box_width/2 -7 ,spacer_box_hight/2 - 20])
+translate([-40,-pi_box_width/2 - spacer_box_width/2 -7 ,spacer_box_hight/2 - 20])
     rotate([0,90,270])
         atachment_notch(spacer_box_hight,spacer_box_width,spacer_box_length);
 }
